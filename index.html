@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Text Design</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 40px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+        }
+        
+        .logo {
+            font-weight: 600;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: #2c3e50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #7f8c8d;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #2c3e50;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #2c3e50;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 500px;
+            margin-top: 15px;
+        }
+        
+        .collection {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #7f8c8d;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #3498db;
+        }
+        
+        .items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        
+        .item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        .item p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .subs {
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+        }
+        
+        .subs h2 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+        }
+        
+        .subs h2 span {
+            font-weight: 600;
+        }
+        
+        .subs p {
+            max-width: 500px;
+            color: #ecf0f1;
+            font-size: 1rem;
+        }
+        
+        .email-form {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 15px;
+        }
+        
+        .email-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .email-form button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .email-form button:hover {
+            background: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">HOME</div>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Journal</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <h1>OUR <span>COLLECTION</span></h1>
+            <p>Discover our curated selection of premium items designed for modern living. Each piece combines functionality with timeless aesthetics.</p>
+        </section>
+        
+        <section class="collection">
+            <h2 class="section-title">FULL WINTERS</h2>
+            <div class="items">
+                <div class="item">
+                    <h3>Winter Coats</h3>
+                    <p>Premium outerwear designed for extreme conditions without compromising on style.</p>
+                </div>
+                <div class="item">
+                    <h3>Thermal Wear</h3>
+                    <p>Advanced fabric technology that retains heat while allowing your skin to breathe.</p>
+                </div>
+                <div class="item">
+                    <h3>Winter Accessories</h3>
+                    <p>Handcrafted gloves, scarves, and hats to complete your winter wardrobe.</p>
+                </div>
+                <div class="item">
+                    <h3>Footwear</h3>
+                    <p>Waterproof and insulated boots designed for both urban and outdoor environments.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="subs">
+            <h2>SUBSCRIBE <span>SUBS</span></h2>
+            <p>Join our exclusive membership for early access to new collections, special discounts, and styling advice from our experts.</p>
+            <div class="email-form">
+                <input type="email" placeholder="Enter your email address">
+                <button>Subscribe</button>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2023 HOME Collection. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
