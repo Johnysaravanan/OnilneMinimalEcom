@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimal Text Design</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap">
+    <title>Winter Collection | HOME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,37 +15,45 @@
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
-            width: 90%;
-            max-width: 1000px;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
         header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(44, 62, 80, 0.1);
         }
         
         .logo {
-            font-weight: 600;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: #e74c3c;
         }
         
         nav ul {
@@ -56,11 +65,12 @@
         nav a {
             text-decoration: none;
             color: #7f8c8d;
-            font-weight: 400;
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 1px;
             transition: color 0.3s;
             position: relative;
+            padding: 5px 0;
         }
         
         nav a:hover {
@@ -70,11 +80,11 @@
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 1px;
-            background: #2c3e50;
+            height: 2px;
+            background: #e74c3c;
             transition: width 0.3s;
         }
         
@@ -82,159 +92,421 @@
             width: 100%;
         }
         
-        .hero {
+        .header-icons {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding: 40px 0;
+            gap: 20px;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .icon-btn:hover {
+            color: #e74c3c;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: -1;
         }
         
         .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 4.5rem;
-            font-weight: 300;
-            letter-spacing: 8px;
-            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #2c3e50;
         }
         
         .hero h1 span {
-            font-weight: 600;
+            color: #e74c3c;
+            display: block;
+            font-size: 5rem;
+            margin-top: -15px;
         }
         
         .hero p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            max-width: 500px;
-            margin-top: 15px;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
         }
         
-        .collection {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+        .btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 2px solid #2c3e50;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: #2c3e50;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: #e74c3c;
+            border-color: #e74c3c;
+        }
+        
+        .btn-secondary:hover {
+            color: #e74c3c;
+        }
+        
+        /* Collection Section */
+        .collection-section {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
         
         .section-title {
-            font-size: 1.2rem;
-            letter-spacing: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
             color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .product-category {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+        
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .product-price .old-price {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.1rem;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+        
+        /* Subscription Section */
+        .subscription {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subscription::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        .subscription::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        .subscription-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subscription h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .subscription h2 span {
+            color: #e74c3c;
+        }
+        
+        .subscription p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: #ecf0f1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .email-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .subscribe-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0 35px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .subscribe-btn:hover {
+            background: #c0392b;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a2530;
+            color: #ecf0f1;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             position: relative;
             padding-bottom: 10px;
         }
         
-        .section-title::after {
+        .footer-col h3::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 50px;
             height: 2px;
-            background: #3498db;
+            background: #e74c3c;
         }
         
-        .items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 30px;
+        .footer-col p {
+            color: #bdc3c7;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
         
-        .item {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .social-links {
+            display: flex;
+            gap: 15px;
         }
         
-        .item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .item h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .item p {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        
-        .subs {
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             background: #2c3e50;
             color: white;
-            border-radius: 8px;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #e74c3c;
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            text-decoration: none;
+            color: #bdc3c7;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #e74c3c;
+            padding-left: 5px;
+        }
+        
+        .copyright {
             text-align: center;
-            gap: 25px;
-        }
-        
-        .subs h2 {
-            font-size: 2.2rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-        }
-        
-        .subs h2 span {
-            font-weight: 600;
-        }
-        
-        .subs p {
-            max-width: 500px;
-            color: #ecf0f1;
-            font-size: 1rem;
-        }
-        
-        .email-form {
-            display: flex;
-            width: 100%;
-            max-width: 500px;
-            margin-top: 15px;
-        }
-        
-        .email-form input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 1rem;
-        }
-        
-        .email-form button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 0 30px;
-            border-radius: 0 4px 4px 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .email-form button:hover {
-            background: #2980b9;
-        }
-        
-        footer {
-            text-align: center;
-            padding-top: 40px;
-            color: #7f8c8d;
+            padding-top: 30px;
+            border-top: 1px solid #2c3e50;
+            color: #95a5a6;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero h1 span {
+                font-size: 4rem;
+            }
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            header {
+            .header-content {
                 flex-direction: column;
                 gap: 20px;
             }
@@ -243,62 +515,232 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            .hero {
+                padding: 160px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h1 span {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .subscription h2 {
+                font-size: 2.5rem;
+            }
+            
+            .email-form {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .email-input {
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .subscribe-btn {
+                border-radius: 0 0 10px 10px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 span {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .subscription h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">HOME</div>
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Journal</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <section class="hero">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">H<span>O</span>ME</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <button class="icon-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
             <h1>OUR <span>COLLECTION</span></h1>
-            <p>Discover our curated selection of premium items designed for modern living. Each piece combines functionality with timeless aesthetics.</p>
-        </section>
-        
-        <section class="collection">
-            <h2 class="section-title">FULL WINTERS</h2>
-            <div class="items">
-                <div class="item">
-                    <h3>Winter Coats</h3>
-                    <p>Premium outerwear designed for extreme conditions without compromising on style.</p>
+            <p>Discover our premium winter essentials designed for comfort, style, and warmth. Handcrafted with attention to detail for the modern individual.</p>
+            <div class="hero-btns">
+                <a href="#" class="btn">Shop Now</a>
+                <a href="#" class="btn btn-secondary">View Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section class="collection-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FULL WINTERS</h2>
+                <p class="section-subtitle">Explore our curated selection of winter essentials to keep you warm and stylish all season long</p>
+            </div>
+            
+            <div class="collection-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Winter Coat">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Coats</div>
+                        <h3 class="product-name">Premium Winter Coat</h3>
+                        <div class="product-price">$129.99 <span class="old-price">$159.99</span></div>
+                    </div>
                 </div>
-                <div class="item">
-                    <h3>Thermal Wear</h3>
-                    <p>Advanced fabric technology that retains heat while allowing your skin to breathe.</p>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Warm Wool Sweater">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sweaters</div>
+                        <h3 class="product-name">Warm Wool Sweater</h3>
+                        <div class="product-price">$89.99 <span class="old-price">$109.99</span></div>
+                    </div>
                 </div>
-                <div class="item">
-                    <h3>Winter Accessories</h3>
-                    <p>Handcrafted gloves, scarves, and hats to complete your winter wardrobe.</p>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thermal Winter Jacket">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Jackets</div>
+                        <h3 class="product-name">Thermal Winter Jacket</h3>
+                        <div class="product-price">$149.99</div>
+                    </div>
                 </div>
-                <div class="item">
-                    <h3>Footwear</h3>
-                    <p>Waterproof and insulated boots designed for both urban and outdoor environments.</p>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Winter Accessory Set">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-name">Winter Accessory Set</h3>
+                        <div class="product-price">$59.99</div>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="subs">
-            <h2>SUBSCRIBE <span>SUBS</span></h2>
-            <p>Join our exclusive membership for early access to new collections, special discounts, and styling advice from our experts.</p>
-            <div class="email-form">
-                <input type="email" placeholder="Enter your email address">
-                <button>Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="subscription">
+        <div class="container">
+            <div class="subscription-content">
+                <h2>SUBSCRIBE <span>SUBS</span></h2>
+                <p>Join our exclusive membership for early access to new collections, special discounts, and styling advice from our experts.</p>
+                <div class="email-form">
+                    <input type="email" class="email-input" placeholder="Enter your email address">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
             </div>
-        </section>
-        
-        <footer>
-            <p>&copy; 2023 HOME Collection. All rights reserved.</p>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>About HOME</h3>
+                    <p>We create premium winter essentials that combine style, comfort, and functionality for the modern individual.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Customer Reviews</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Customer Care</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return & Exchange</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, New York</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@homecollection.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 HOME Collection. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
